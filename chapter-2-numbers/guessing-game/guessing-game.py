@@ -43,58 +43,16 @@ def guessing_game_v2():
 # guessing_game_v2()
 # --------------------------------------------------------
 
-def decimal_to_hex(decimal_num):
-    hex_digits = "0123456789ABCDEF"
-    hex_num = ""
-    duplicate_dn = decimal_num
-    while decimal_num != 0:
-        quo = decimal_num // 16
-        rem = decimal_num % 16
-        hex_num = hex_digits[rem] + hex_num
-        decimal_num = quo
-        
-    # print(f"Hex value of decimal num {duplicate_dn} is {hex_num}")
-    return hex_num
-    
-    
-def hex_to_decimal(hex_str):
-    hex_digits = "0123456789ABCDEF"
-    hex_str = hex_str.upper()
-    decimal_val = 0
-    for i, digit in enumerate(reversed(hex_str)):
-        decimal_val += hex_digits.index(digit) * (16 ** i)
-    # return f"Decimal value of hex str {hex_str} is {decimal_val}"
-    return decimal_val
-   
-# hex_num = decimal_to_hex(16)
-# print(hex_to_decimal(hex_num)) 
 
-def decimal_to_binary(decimal_num):
-    binary_num = ""
-    duplicate_dn = decimal_num
-    while decimal_num != 0:
-        bit = str(decimal_num % 2)
-        binary_num = bit + binary_num
-        decimal_num = decimal_num // 2
-    # print(f"Decimal Value: {duplicate_dn} => Binary value : {binary_num}")
-    return binary_num
-    
-def binary_to_decimal(binary_str):
-    decimal_num = 0
-    for i, bit in enumerate(reversed(binary_str)):
-        decimal_num += int(bit) * (2 ** i)
-    # return f"Binary Value: {binary_str} => Decimal value : {decimal_num}"
-    return decimal_num
-    
-# binary_num = decimal_to_binary(25)
-# print(binary_to_decimal(binary_num))
-    
 def guessing_game_v3():
+    from decimal_to_binary import binary_to_decimal
+    from decimal_to_hexadec import hex_to_decimal
+
     # choose random number
     ans = random.randint(0,100)
     # choose base of random number
     r_base = random.choice([2,10,16])
-    
+
     print(f"{"*"*5} Guessing Game {"*"*5}")
     chances = 3
     user_prompt = f"You have {chances} chances. Guess the number in base {r_base}: "
